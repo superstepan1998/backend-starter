@@ -57,7 +57,16 @@ export default class LoginController {
 
   @Post('/email')
   async email(@Ctx() ctx: Context) {
-    const // finish here
+    const token = ctx.headers.token
+    if (typeof token !== 'string') {
+      return ctx.throw(401, 'Invalid token')
+    }
+
+    const user = await getOrCreateUser({
+      name: string,
+      email: string,
+    })
+    return user.strippedAndFilled(true)
   }
 }
 
