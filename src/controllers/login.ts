@@ -64,7 +64,7 @@ export default class LoginController {
 
     const user = await getOrCreateUser({
       name: this.name,
-      email: this.email,
+      email: this.email, // check here
     })
     return user.strippedAndFilled(true)
   }
